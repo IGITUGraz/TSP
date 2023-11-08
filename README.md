@@ -21,12 +21,10 @@ conda env create -f environment.yml
 ```
 ## Datasets
 - babi-tasks:
-automatically downloaded from [](http://www.thespermwhale.com/jaseweston/babi/)
+automatically downloaded from http://www.thespermwhale.com/jaseweston/babi/
 - Omniglot embedding:
-We provided omniglot embedding from a standard CNN prototypical network
+We provide omniglot embedding from a standard CNN prototypical network
 the data are located at "./datasets/omniglot_proto_emb/"
-For our experiments we only use the embedding of omniglot test-set,
-meaning none of the classes present in the test-set where used to train the prototypical network.
 
 ## Usage
 All our tasks relies on hydra configuration system.
@@ -64,8 +62,3 @@ Radial maze (reward switching):
 ```bash
 python run_rl.py task=radial_omniglot_fixed training=radial_fixed task.generator_params.omniglot_path=./datasets/omniglot_proto_emb/test_set model=radial_pg_fa task.switch_reward_rule=everytime
 ```
-
-
-
-
-
