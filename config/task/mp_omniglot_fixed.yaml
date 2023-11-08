@@ -1,0 +1,14 @@
+defaults:
+  - rl_mp
+  - _self_
+nb_states: 5
+batch: 32
+episode_length: 10
+state_dim: 64
+state_type: omniglot
+reward_on_match_proba: 1.0
+context_type: concat_with_obs
+generator_params: 
+  omniglot_path: /home/romain/research_projects/fax/datasets/omniglot_proto_emb/test_set
+  fixed_sample: true
+  dynamic_length: true

@@ -1,0 +1,13 @@
+defaults:
+  - rl_ap
+  - _self_
+state_type: omniglot
+state_dim: 64
+nb_states: 6
+nb_store_state: 6
+hops: 2
+unique_pair: true
+batch: 32
+generator_params: 
+  omniglot_path: ""
+  fixed_sample: true

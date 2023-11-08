@@ -1,0 +1,48 @@
+defaults:
+  - /metric@accuracy: accuracy
+  - /metric@return_average: average
+  - /metric@value_average: average
+  - /metric@prob_average: average
+  # - /metric@context_accuracy: context_accuracy
+  # - /metric@lr: log_step_func
+  # - /metric@gamma: log_step_func
+  # - /metric@entropy: log_step_func
+ # - /metric@store: store
+  - _self_
+return_average:
+  key: reward
+value_average:
+  key: value
+prob_average:
+  key: action_prob
+accuracy:
+  from_logits: true
+# context_accuracy:
+#   from_logits: true
+#   nb_context: 2
+# lr:
+#   key: learning_rate
+#   func:
+#     _target_: "optax.exponential_decay"
+#     init_value: 0.002
+#     transition_steps: 1000
+#     decay_rate: 0.95
+#     transition_begin: 1000
+# gamma:
+#   key: gamma
+#   func:
+#     _target_: "optax.exponential_decay"
+#     init_value: 0.02
+#     transition_steps: 1000
+#     decay_rate: 0.7
+#     transition_begin: 1000
+#     end_value: 0.001
+# entropy:
+#   key: entropy_coef
+#   func:
+#     _target_: "optax.exponential_decay"
+#     init_value: 0.97
+#     transition_steps: 1000
+#     decay_rate: 0.9
+#     transition_begin: 1000
+#     end_value: 0.5

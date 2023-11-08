@@ -1,0 +1,6 @@
+defaults:
+  - sgd
+  - /training/scheduler@learning_rate : exponential
+  - _self_
+momentum: null
+nesterov: false

@@ -1,0 +1,10 @@
+defaults:
+  - rl_ap
+  - _self_
+batch: 1
+state_type: uniform
+state_dim: 20
+nb_states: 5
+nb_store_state: 5
+hops: 1
+unique_pair: true

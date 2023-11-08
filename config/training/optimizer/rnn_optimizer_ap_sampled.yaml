@@ -1,0 +1,14 @@
+defaults:
+  - /training/optimizer@normalize: global_norm_clip
+  - /training/optimizer@adam: adamw
+  - /training/scheduler@adam.learning_rate: exp_scheduler
+  - _self_
+  
+adam:
+  learning_rate:
+    init_value: 0.01
+    transition_steps: 100
+    decay_rate: 0.9
+    transition_begin: 100
+normalize:
+  max_norm: 10

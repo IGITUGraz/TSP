@@ -1,0 +1,14 @@
+defaults:
+  - rl_radial
+  - _self_
+switch_reward_rule: fixed
+# fixed, reward_only, everytime
+switch_pair_rule: uniform
+# uniform, circular
+nb_pairs: 4
+horizon: 40
+state_type: uniform
+batch: 32
+generator_params: 
+  omniglot_path: ""
+  fixed_sample: true

@@ -1,0 +1,25 @@
+defaults:
+  - graph_ff_structure: fear_cond
+  - layer@layers_definitions.h_mem: h_mem_fear
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  proj_1:
+      func: projection
+      hyper_params:
+        axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  temporal_norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  d1:
+    func: dense
+    hyper_params:
+      is_feedback_aligned: true
+      out_dim: ${task.nb_classes}
+

@@ -1,0 +1,12 @@
+func: hmem
+hyper_params:
+  store_func: relu
+  recall_func: relu
+  memory_size: 400
+  hebbian_type: reversed_oja
+  hebbian_params:
+    h_max: 1.0
+    gamma_pos: 0.01
+    gamma_neg: 0.01
+  is_eprop: false
+  is_diagonal: true

@@ -1,0 +1,27 @@
+defaults:
+  - /gradient_transform@grad.normalizer: global_norm_clip
+  - /gradient_transform@grad.optimizer: adamw
+  - /scheduler@opti_lr: exp_scheduler
+  - _self_
+runner: supervised
+experiment_name: babi
+epochs: 100
+batch_size: 64
+seed: null
+params_to_freeze: [h_mem/hebbian_params, norm, w_emb, p_emb]
+states_to_reduce: [norm]
+temporal_type: rnn
+batch_config:
+  in_axes: [0,0]
+  out_axes: 0
+loss: sparse_cross_entropy
+opti_lr:
+  init_value: 1e-3
+  transition_steps: ${task.train_n_batch}
+  decay_rate: 0.96
+  transition_begin: ${task.train_n_batch}
+grad:
+  optimizer:
+    learning_rate: ${training.opti_lr}
+  normalizer:
+    max_norm: 10

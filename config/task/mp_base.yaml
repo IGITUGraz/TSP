@@ -1,0 +1,12 @@
+defaults:
+  - rl_mp
+  - _self_
+nb_states: 10
+batch: 1
+noise_length: 4
+state_dim: 20
+state_type: uniform
+reward_on_match_proba: 0.5
+context_type: concat_with_obs
+generator_params: 
+  fixed_sample: true

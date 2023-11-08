@@ -1,0 +1,15 @@
+func: rec_hmem
+hyper_params:
+  memory_size: 400
+  hebbian_type: reversed_oja
+  modulation: multiplicative
+  modulation_func: relu
+  to_modulate: output
+  store_func: relu
+  recall_func: relu
+  hebbian_params:
+    h_max: 1.0
+    gamma_pos: 0.01
+    gamma_neg: 0.01
+  w_init: relu_orthogonal
+  u_init: orthogonal

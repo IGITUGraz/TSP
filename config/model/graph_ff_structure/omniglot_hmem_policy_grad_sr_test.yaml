@@ -1,0 +1,4 @@
+- [proj_1, temporal_norm, h_mem, h_mem_sr, layer_norm, value_layer]
+- [proj_2, h_mem]
+- [proj_2, h_mem_sr]
+- [layer_norm, policy_layer]

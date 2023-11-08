@@ -1,0 +1,30 @@
+defaults:
+  - tree_transform: hp_labels
+  - _self_
+metric: accuracy
+resources_per_trial: 
+  cpu: 1
+  gpu: 0
+mode: max
+name: mp_fixed_2
+resume: AUTO
+verbose: 1
+stop: 
+  {"training_iteration": 315}
+max_failures: 2
+num_samples: -1
+local_dir: ./data/ray_tune
+keep_checkpoints_num: 1
+nb_warmup_batch: 200
+nb_sample_per_run: 5
+
+search_alg:
+  metric: accuracy
+  mode: max
+
+scheduler:
+  time_attr: training_iteration
+  max_t: 315
+  grace_period: 10
+  reduction_factor: 3
+  brackets: 1

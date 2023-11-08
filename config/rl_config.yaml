@@ -1,0 +1,32 @@
+defaults:
+  - training: mp_fixed
+  - hp_config: base_hp
+  - metric: mp
+  - task: mp_omniglot_fixed
+  - model: mp_pg_fa
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+training:
+  experiment_name: mp_fixed
+  checkpoint_path: ./data/test
+aim_dir: ./data/test
+logging:
+  stdout: "./slurm_jp.out"
+  stderr: "./slurm_jp.err"
+  exclude_list:
+    - task
+    - metrics
+    - logging
+    - hp_config
+model:
+  checkpoint_path: null
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  sweep:
+    dir: .
+    subdir: .
+

@@ -1,0 +1,13 @@
+defaults:
+  - rl_ap
+  - _self_
+state_type: omniglot
+state_dim: 64
+nb_states: 5
+nb_store_state: 5
+hops: 2
+unique_pair: true
+batch: 32
+generator_params: 
+  omniglot_path: /home/ferrand/research_projects/jax_fax/datasets/omniglot_proto_emb/test_set
+  fixed_sample: false

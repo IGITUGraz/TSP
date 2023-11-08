@@ -1,0 +1,9 @@
+defaults:
+  - fear_cond
+  - _self_
+dynamic_size: True
+dim_size: 50
+nb_non_fear_pattern: 10
+nb_ones: 3
+sample_size: 1000
+disjoint_pattern_set: False

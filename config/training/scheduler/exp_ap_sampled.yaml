@@ -1,0 +1,6 @@
+defaults:
+  - exp_scheduler
+init_value: 0.002
+transition_steps: 100
+decay_rate: 0.95
+transition_begin: 100

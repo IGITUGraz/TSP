@@ -1,0 +1,3 @@
+defaults:
+  - /training/optimizer@normalize: global_norm_clip
+  - /training/optimizer@mt: multi_transform_base

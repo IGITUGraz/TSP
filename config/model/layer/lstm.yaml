@@ -1,0 +1,6 @@
+func: lstm
+hyper_params:
+  out_dim: 200
+  w_init: glorot_uniform
+  b_init: zeros
+  activation: relu

@@ -1,0 +1,14 @@
+# disable the hydra built-in directory management
+defaults:
+  - task: babi
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+  - _self_
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  sweep:
+    dir: .
+    subdir: .
+

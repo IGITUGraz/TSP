@@ -1,0 +1,34 @@
+defaults:
+  - optimizer: rnn_optimizer
+  - transform@state_transform: h_mem_states_transform
+  - transform@gradient_transform: h_mem_gradient_stop
+  - optimizer@params_transform: h_mem_params_transform
+  - _self_
+runner: rl
+experiment_name: rl_babi
+indep_test_env: false
+seed: null
+# seed: null
+nb_episode: 20_000
+batch: 1
+loss_log_frequency: 100
+eval_frequency: 100
+nb_episodes_per_eval: 100
+checkpoint_frequency: 0
+
+temporal_type: null
+batch_config: null
+online_learning: true
+
+loss:
+  func: vanilla_policy_gradient
+  params:
+    temperature: 0.001
+    gamma: 0.9
+    lambda: 0.0
+eval_params:
+  obs_type: both
+accumulator:
+  # nb_store_state + hops + 1 (terminal state)
+  max_episode_len: 11
+  multiple_episodes_in_batch: false

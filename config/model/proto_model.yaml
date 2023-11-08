@@ -1,0 +1,46 @@
+efaults:
+  - graph_ff_structure: protonet
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  proj_1:
+    func: conv_2d
+    hyper_params:
+      axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  w_emb:
+    func: word_embedding
+    hyper_params:
+      w_init: he_uniform
+      out_dim: 80
+      vocab_size: ${task.vocab_size}
+  p_emb:
+    func: phrase_embedding
+    hyper_params:
+      type: position
+      w_init: glorot_normal
+  norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  d1:
+    func: dense
+    hyper_params:
+      out_dim: ${task.nb_classes}
+      is_feedback_aligned: true
+  h_mem:
+    func: hmem
+    hyper_params:
+      memory_size: 100
+      hebbian_type: reversed_oja
+      hebbian_params:
+        h_max: 1.0
+        gamma_pos: 0.01
+        gamma_neg: 0.01
+      is_eprop: false
+      is_diagonal: true
+

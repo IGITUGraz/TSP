@@ -1,0 +1,8 @@
+defaults:
+  - multi_transform
+  - /training/optimizer@transforms.fallback: identity
+  - /training/optimizer@transforms.gamma_pos_schedule: replace_by_schedule_babi
+labels_struct:
+  gamma_pos_schedule:
+    prefix: ["hebbian_params"]
+    postfix: ["gamma_pos", "gamma_neg"]

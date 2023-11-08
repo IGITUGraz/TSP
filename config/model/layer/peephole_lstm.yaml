@@ -1,0 +1,12 @@
+func: peephole_lstm
+hyper_params:
+  out_dim: 200
+  activation: tanh
+  recurrent_activation: hard_sigmoid
+  w_init: glorot_uniform
+  u_init: glorot_uniform
+  b_init: zeros
+  p_init: normal
+  use_bias: True
+  full_cell_reccurent: False
+  use_activation_at_output: True

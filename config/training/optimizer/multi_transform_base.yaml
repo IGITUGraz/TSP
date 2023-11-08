@@ -1,0 +1,8 @@
+defaults:
+  - multi_transform
+  - /training/optimizer@transforms.fallback: adamw_base
+  - /training/optimizer@transforms.bias: sgd_base
+labels_struct:
+  bias:
+    prefix: []
+    postfix: ["b", "b_ff", "b_fb"]

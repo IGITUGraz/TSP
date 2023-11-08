@@ -1,0 +1,9 @@
+defaults:
+  - scale_by_schedule
+  - /training/scheduler@step_size_fn : exponential
+  - _self_
+step_size_fn:
+  init_value: 1.0
+  decay_rate: 0.99
+  transition_steps: 500
+  end_value: 0.5

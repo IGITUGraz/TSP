@@ -1,0 +1,20 @@
+defaults:
+  - optimizer: rnn_optimizer_babi
+  - transform@state_transform: h_mem_states_transform
+  - transform@gradient_transform: h_mem_gradient_stop_babi
+  - optimizer@params_transform: babi_params_transform
+  - _self_
+runner: supervised
+experiment_name: babi_1
+epochs: 100
+seed: null
+# seed: null
+batch_size: ${batch_size}
+checkpoint_frequency: 0
+temporal_type: seq2seq
+batch_config:
+  in_axes: [0,null,0]
+  out_axes: 0
+
+loss: sparse_cross_entropy
+checkpoint_path: "./data/models"

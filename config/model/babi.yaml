@@ -1,0 +1,50 @@
+defaults:
+  - graph_ff_structure: babi
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  h_mem_1:
+    func: hmem
+    hyper_params:
+      store_func: relu
+      recall_func: relu
+      memory_size: ${units}
+      hebbian_type: reversed_oja
+      hebbian_params:
+        h_max: 1.0
+        gamma_neg: 0.1
+        gamma_pos: 0.1
+      is_eprop: true
+      is_diagonal: true
+      is_fact_agnostic: false
+      is_reccurrent: false
+  proj_1:
+      func: projection
+      hyper_params:
+        axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  w_emb:
+    func: word_embedding
+    hyper_params:
+      w_init: he_uniform
+      out_dim: 80
+      vocab_size: ${task.vocab_size}
+  p_emb:
+    func: phrase_embedding
+    hyper_params:
+      type: position
+      w_init: glorot_normal
+  temporal_norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  d1:
+    func: dense
+    hyper_params:
+      is_feedback_aligned: true
+      out_dim: ${task.nb_classes}
+

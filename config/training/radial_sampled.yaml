@@ -1,0 +1,43 @@
+defaults:
+  - optimizer: rnn_optimizer_radial_sampled
+  - transform@state_transform: h_mem_states_transform
+  - transform@gradient_transform: h_mem_gradient_stop
+  - optimizer@params_transform: radial_sampled_params_transform
+  - _self_
+runner: rl
+experiment_name: rl_radial_sampled_final_2
+indep_test_env: false
+seed: null
+nb_policy_iteration: 315
+batch: 32
+# 315*32 = 10_080 episodes
+loss_log_frequency: 10
+eval_frequency: 10
+nb_episodes_per_eval: 100
+checkpoint_frequency: 0
+
+temporal_type: null
+batch_config: null
+online_learning: true
+
+loss:
+  func: vanilla_policy_gradient
+  params:
+    vectorize_model: false
+    supervised: false
+    temperature: 1.0
+    gamma: 0.8
+    lambda: 0.0
+    clip_param: 0.2
+    importance_sampling: true
+    entropy_coef:
+      init_value: 0.2
+      transition_steps: 100
+      decay_rate: 0.7
+      transition_begin: 100
+eval_params:
+  obs_type: both
+accumulator:
+  max_episode_len: 90
+  multiple_episodes_in_batch: false
+

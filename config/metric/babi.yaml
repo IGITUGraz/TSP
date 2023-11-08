@@ -1,0 +1,8 @@
+defaults:
+  - /metric@accuracy: accuracy
+  - /metric@return_average: average
+  - _self_
+return_average:
+  key: loss
+accuracy:
+  from_logits: true

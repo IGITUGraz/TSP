@@ -1,0 +1,9 @@
+defaults:
+  - replace_by_schedule
+  - /training/scheduler@step_size_fn : exp_scheduler
+  - _self_
+step_size_fn:
+  init_value: 0.48
+  transition_steps: 100
+  decay_rate: 0.70
+  transition_begin: 100

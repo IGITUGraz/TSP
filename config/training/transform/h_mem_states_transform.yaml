@@ -1,0 +1,7 @@
+defaults:
+  - state_transform
+  - _self_
+labels_struct:
+  reduce:
+    prefix: ["temporal_norm"]
+    postfix: []

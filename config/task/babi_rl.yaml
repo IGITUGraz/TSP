@@ -1,0 +1,14 @@
+defaults:
+  - rl_babitask
+  - _self_
+batch: 1
+babi_parameters:
+  task_id: 1
+  training_set_type: "10k"
+  mode: "default"
+  class_space: "full_corpus"
+  max_num_sentences: -1
+  hops: 1
+generator_params: 
+  dummy: true
+

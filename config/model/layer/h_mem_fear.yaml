@@ -1,0 +1,17 @@
+func: hmem
+hyper_params:
+  store_func: relu
+  recall_func: relu
+  memory_size: 100
+  hebbian_type: reversed_oja
+  hebbian_params:
+    h_max: 1.0
+    # logspace distribution (10**n) when gamma)pos or/and gamma_neg are tuple
+    # gamma_pos: [0.0, -3]
+    # gamma_neg: [0.0, -3]
+    gamma_neg: 0.01
+    gamma_pos: 0.01
+  is_eprop: true
+  is_diagonal: true
+  is_fact_agnostic: false
+  is_reccurrent: false

@@ -1,0 +1,13 @@
+defaults:
+  - rl_radial
+  - _self_
+switch_reward_rule: fixed
+switch_pair_rule: uniform
+nb_pairs: 4
+horizon: 40
+state_dim: 64
+state_type: omniglot
+batch: 32
+generator_params: 
+  omniglot_path:  /home/ferrand/research_projects/jax_fax/datasets/omniglot_proto_emb/test_set
+  fixed_sample: true

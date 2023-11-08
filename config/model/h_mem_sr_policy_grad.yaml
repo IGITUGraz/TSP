@@ -1,0 +1,34 @@
+defaults:
+  - graph_ff_structure: omniglot_hmem_policy_grad_sr_test
+  - layer@layers_definitions.h_mem: h_mem
+  - layer@layers_definitions.h_mem_sr: h_mem_sr
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  proj_1:
+    func: projection
+    hyper_params:
+      axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  temporal_norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  layer_norm:
+    func: layer_normalization
+    hyper_params:
+      normalization_type: min_max
+  value_layer:
+    func: dense
+    hyper_params:
+      is_feedback_aligned: true
+      out_dim: 1
+  policy_layer:
+    func: dense
+    hyper_params:
+      is_feedback_aligned: true
+      out_dim: 2

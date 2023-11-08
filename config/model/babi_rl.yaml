@@ -1,0 +1,39 @@
+defaults:
+  - graph_ff_structure: babi_rl
+  - layer@layers_definitions.h_mem: h_mem
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  proj_1:
+      func: projection
+      hyper_params:
+        axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  w_emb:
+    func: word_embedding
+    hyper_params:
+      w_init: he_uniform
+      out_dim: 80
+      vocab_size: ${task.vocab_size}
+  p_emb:
+    func: phrase_embedding
+    hyper_params:
+      type: position
+      w_init: glorot_normal
+  temporal_norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  value_layer:
+    func: dense
+    hyper_params:
+      out_dim: 1
+  policy_layer:
+    func: dense
+    hyper_params:
+
+      out_dim: ${task.nb_classes}

@@ -1,0 +1,31 @@
+defaults:
+  - graph_ff_structure: omniglot_rnn_policy_grad
+  - layer@layers_definitions.rnn: lstm
+  - _self_
+graph_fb_structure: null
+layers_definitions:
+  proj_1:
+    func: projection
+    hyper_params:
+      axis: 0
+  proj_2:
+    func: projection
+    hyper_params:
+      axis: 1
+  temporal_norm:
+    func: temporal_normalization
+    hyper_params:
+      gamma_init: ones
+      beta_init: zeros
+  layer_norm:
+    func: layer_normalization
+    hyper_params:
+      normalization_type: min_max
+  value_layer:
+    func: dense
+    hyper_params:
+      out_dim: 1
+  policy_layer:
+    func: dense
+    hyper_params:
+      out_dim: 2

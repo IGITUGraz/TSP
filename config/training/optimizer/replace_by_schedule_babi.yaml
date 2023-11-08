@@ -1,0 +1,10 @@
+defaults:
+  - replace_by_schedule
+  - /training/scheduler@step_size_fn : exp_scheduler
+  - _self_
+step_size_fn:
+  init_value: ${gamma_init_value}
+  transition_steps: ${task.train_n_batch}
+  decay_rate: ${gamma_decay}
+  end_value: 0.01
+  transition_begin: ${task.train_n_batch}

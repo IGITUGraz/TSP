@@ -1,0 +1,19 @@
+defaults:
+  - /metric@accuracy: accuracy
+  - /metric@return_average: average
+  - /metric@value_average: average
+  - /metric@prob_average: average
+  - /metric@context_accuracy: context_accuracy
+
+  - _self_
+return_average:
+  key: reward
+value_average:
+  key: value
+prob_average:
+  key: action_prob
+accuracy:
+  from_logits: true
+context_accuracy:
+  from_logits: true
+  nb_context: ${task.nb_states}

@@ -1,0 +1,8 @@
+defaults:
+  - gradient_stop
+  - _self_
+labels_struct:
+  stop:
+    prefix: []
+    postfix: ["hebbian_params", "layer_norm", "temporal_norm"]
+

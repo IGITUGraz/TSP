@@ -1,0 +1,55 @@
+label_struct:
+  # h_max:
+  #   prefix: ["h_mem"]
+  #   postfix: ["h_max"]
+  lr:
+    prefix: ["optimizer"]
+    postfix: ["init_value"]
+  lr_decay:
+    prefix: ["optimizer"]
+    postfix: ["decay_rate"]
+  max_norm:
+    prefix: ["optimizer"]
+    postfix: ["max_norm"]
+  gamma_transform:
+    prefix: ["params_transform"]
+    postfix: ["init_value"]
+  decay_gamma_transform:
+    prefix: ["params_transform"]
+    postfix: ["decay_rate"]
+  # temperature:
+  #   prefix: []
+  #   postfix: ["temperature"]
+  gamma:
+    prefix: []
+    postfix: ["gamma"]
+  # lambda:
+  #   prefix: []
+  #   postfix: ["lambda"]
+  entropy_coef:
+    prefix: ["entropy_coef"]
+    postfix: ["init_value"]
+  entropy_decay:
+    prefix: ["entropy_coef"]
+    postfix: ["decay_rate"]
+  
+  
+transforms:
+  # h_max: tune.quniform(1.0,10.0, 1.0)
+  lr: tune.loguniform(1e-4, 1e-1)
+  max_norm: tune.randint(1, 10)
+  decay_gamma_transform: tune.quniform(0.5, 1.0, 0.01)
+  lr_decay: tune.quniform(0.5, 1.0, 0.01)
+  entropy_decay: tune.quniform(0.5, 1.0, 0.01)
+  entropy_coef: tune.quniform(0.1, 1.0, 0.01)
+
+  gamma_transform: tune.loguniform(1e-4, 1)
+  # temperature: tune.loguniform(1e-4, 1.0)
+  gamma: tune.quniform(0.5, 1.0, 0.01)
+  # lambda: tune.quniform(0.0, 1.0, 0.01)
+
+
+
+
+
+

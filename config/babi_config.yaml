@@ -1,0 +1,45 @@
+defaults:
+  - training: babi
+  - hp_config: base_hp
+  - metric: babi
+  - task: babi_supervised
+  - model: babi
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+training:
+  experiment_name: babi
+  checkpoint_path: ./data/models
+aim_dir: ./data/test
+logging:
+  stdout: "./slurm_jp.out"
+  stderr: "./slurm_jp.err"
+  exclude_list:
+    - task
+    - metrics
+    - logging
+    - hp_config
+model:
+  checkpoint_path: null
+
+hydra:
+  job:
+    chdir: False
+  run:
+    dir: .
+  output_subdir: null
+  sweep:
+    dir: .
+    subdir: .
+    
+units: 200
+batch_size: 32
+gamma_init_value: 0.1
+gamma_decay: 0.9
+
+lr_init_value: 5e-3
+lr_decay: 0.95
+
+max_norm: 10
+task_id: "15"
+
